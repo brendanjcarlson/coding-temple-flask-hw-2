@@ -1,0 +1,12 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+
+<h2>Users</h2>
+{% for user in users %}
+<ul>
+    <p><a href="/user/{{user.username}}">{{ user.username }}</a></p>
+</ul>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html.j2" %}
+
+
+{% block content %}
+<div>
+    <h2>{{ user.first_name + ' ' + user.last_name }}'s Page<span> -- {{ user.username }} -- </span></h2>
+</div>
+<h3>Posts</h3>
+{% for post in posts %}
+<ul>
+    <div>
+        <strong>
+            <a href="/post/{{post.id}}">{{ post.title }}</a>
+        </strong>
+        <p>{{ post.body }}</p>
+    </div>
+</ul>
+{% endfor %}
+{% endblock %}
