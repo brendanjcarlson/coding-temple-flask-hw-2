@@ -9,7 +9,7 @@
 <ul>
     {% for comment in comments %}
     <div>
-        <p>{{ comment.body }}</p>
+        <p>{{ comment.user.username }} says: {{ comment.body }}</p>
     </div>
     {% endfor %}
 </ul>

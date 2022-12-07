@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 from app.models import User, Post, Comment, Car
 
 
@@ -21,6 +21,15 @@ def display_profile(username):
     user = User.query.filter_by(username=username).first_or_404()
     posts = Post.query.filter_by(user_id=user.id).all()
     return render_template('profile.html.j2', title=user.username ,user=user, posts=posts)
+
+@app.route('/create_post', methods=['POST'])
+def create_post():
+    title = request.form['inputTitle']
+    body = request.form['inputBody']
+    new_post = Post(title=title, body=body, user_id=1)
+    db.session.add(new_post)
+    db.session.commit()
+    return redirect(location=url_for('home'))
 
 @app.route('/post/<int:post_id>')
 def display_post(post_id):
