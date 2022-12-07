@@ -1,15 +1,6 @@
-from app import app, db
+from . import bp as app
+from .models import User, Post, Comment, Car
 from flask import render_template, request, redirect, url_for
-from app.models import User, Post, Comment, Car
-
-
-@app.route('/')
-def home():
-    return render_template('home.html.j2', title='Home')
-
-@app.route('/about')
-def about():
-    return render_template('about.html.j2', title='About')
 
 @app.route('/users')
 def users():
@@ -29,7 +20,7 @@ def create_post():
     new_post = Post(title=title, body=body, user_id=1)
     db.session.add(new_post)
     db.session.commit()
-    return redirect(location=url_for('home'))
+    return redirect(location=url_for('main.home'))
 
 @app.route('/post/<int:post_id>')
 def display_post(post_id):

@@ -5,7 +5,7 @@
 <h2>Users</h2>
 {% for user in users %}
 <ul>
-    <p><a href="/user/{{user.username}}">{{ user.username }}</a></p>
+    <p><a href="{{ url_for('blog.display_profile', username=user.username)}}">{{ user.username }}</a></p>
 </ul>
 {% endfor %}
 
