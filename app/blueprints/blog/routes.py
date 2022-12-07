@@ -1,4 +1,5 @@
 from . import bp as app
+from app import db
 from .models import User, Post, Comment, Car
 from flask import render_template, request, redirect, url_for
 
@@ -17,7 +18,7 @@ def display_profile(username):
 def create_post():
     title = request.form['inputTitle']
     body = request.form['inputBody']
-    new_post = Post(title=title, body=body, user_id=1)
+    new_post = Post(title=title, body=body, user_id=3)
     db.session.add(new_post)
     db.session.commit()
     return redirect(location=url_for('main.home'))
