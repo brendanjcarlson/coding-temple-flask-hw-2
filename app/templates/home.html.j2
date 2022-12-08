@@ -3,8 +3,59 @@
 {% block content %}
 <h1>home page</h1>
 <small>
-    <p>forgive the lack of styling i am very tired</p>
-    <p>clicking on most things should work</p>
-    <p>wasn't able to associate comments with their owner though</p>
+    <em>
+        <p>wow</p>
+    </em>
 </small>
+
+<hr>
+<p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+        aria-expanded="false" aria-controls="collapseExample">
+        Create a New Listing
+    </button>
+</p>
+<div class="collapse" id="collapseExample">
+    <form action="{{ url_for('main.home') }}" method="POST" class="mb-5">
+        <div class="row">
+            <div class="mb-3 col-3">
+                <label for="inputMake" class="form-label">Make</label>
+                <input type="text" class="form-control" id="inputMake" name="inputMake">
+            </div>
+            <div class="mb-3 col-3">
+                <label for="inputModel" class="form-label">Model</label>
+                <input type="text" class="form-control" id="inputModel" name="inputModel">
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="mb-3 col-2">
+                <label for="inputYear" class="form-label">Year</label>
+                <input type="text" class="form-control" id="inputYear" name="inputYear">
+            </div>
+
+            <div class="mb-3 col-2">
+                <label for="inputColor" class="form-label">Color</label>
+                <input type="text" class="form-control" id="inputColor" name="inputColor">
+            </div>
+
+            <div class="mb-3 col-2">
+                <label for="inputPrice" class="form-label">Price</label>
+                <input type="text" class="form-control" id="inputPrice" name="inputPrice">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+</div>
+
+{% for car in cars %}
+<div class="card mb-2" style="width: 18rem;">
+
+    <div class="card-body">
+        <h5 class="card-title">{{ car.year }} {{ car.make }} {{ car.model }}</h5>
+        <p class="card-text">It's {{ car.color }} and costs ${{ car.price }}</p>
+        <a href="#" class="btn btn-primary">View</a>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}

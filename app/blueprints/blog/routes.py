@@ -18,7 +18,7 @@ def display_profile(username):
 def create_post():
     title = request.form['inputTitle']
     body = request.form['inputBody']
-    new_post = Post(title=title, body=body, user_id=3)
+    new_post = Post(title=title, body=body, user_id=2)
     db.session.add(new_post)
     db.session.commit()
     return redirect(location=url_for('main.home'))

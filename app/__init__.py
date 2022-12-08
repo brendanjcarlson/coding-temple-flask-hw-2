@@ -19,3 +19,5 @@ from app.blueprints.api import bp as api_bp
 app.register_blueprint(blueprint=api_bp)
 from app.blueprints.blog import bp as blog_bp
 app.register_blueprint(blueprint=blog_bp)
+from app.blueprints.auth import bp as auth_bp
+app.register_blueprint(blueprint=auth_bp)
