@@ -1,0 +1,18 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+
+<form action="{{ url_for('auth.login') }}" method="POST">
+    <input type="hidden" name="next" value="{{ request.args.get('next', '') }}">
+    <div class="mb-3">
+        <label for="inputEmail" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="inputEmail" name="inputEmail">
+    </div>
+    <div class="mb-3">
+        <label for="inputPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="inputPassword" name="inputPassword">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

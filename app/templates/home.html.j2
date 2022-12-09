@@ -4,7 +4,7 @@
 <h1>home page</h1>
 <small>
     <em>
-        <p>wow</p>
+        <p>welcome, {{ user.username }}</p>
     </em>
 </small>
 
@@ -54,6 +54,7 @@
     <div class="card-body">
         <h5 class="card-title">{{ car.year }} {{ car.make }} {{ car.model }}</h5>
         <p class="card-text">It's {{ car.color }} and costs ${{ car.price }}</p>
+        <p class="card-text">Sold by: {{ car.user.username }}</p>
         <a href="#" class="btn btn-primary">View</a>
     </div>
 </div>
